@@ -53,10 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/home" className="flex items-center gap-2">
-          <img src={logo} alt="Hero logo" className="h-10 w-auto" />
-          <span className="text-xl font-semibold tracking-wide text-purple-600">
-            HERO.IO
-          </span>
+          <img src={logo} alt="Hero logo" className="h-12 w-auto" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
