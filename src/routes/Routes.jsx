@@ -7,7 +7,9 @@ import InstalledApps from "../Pages/InstalledApps";
 import AppDetails from "../Pages/AppDetails";
 import Apps from "../Pages/Apps";
 import LoadingSpinner from "../Components/LoadingSpinner";
-
+import PrivateRoute from "./Privateroute";
+import SignUp from "../Components/SignUp";
+import Login from "../Components/Login";
 
 const router = createBrowserRouter([
   {
@@ -25,17 +27,38 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/signup",
+        element: <SignUp /> 
+      },
+      {
+        path: "/login",
+        element: <Login /> 
+      },
+      {
         path: "/apps",
-        element: <Apps />,
+        element: (
+          <PrivateRoute>
+            <Apps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/installedapps",
+        element: (
+          <PrivateRoute>
+            <InstalledApps />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/apps/:id",
-        element: <AppDetails />,
+        element: (
+          <PrivateRoute>
+            <AppDetails />
+          </PrivateRoute>
+        ),
       },
-      {
-        path:"/installedapps",
-        element:<InstalledApps />
-      },
+
       {
         path: "*",
         element: <ErrorPage />,
