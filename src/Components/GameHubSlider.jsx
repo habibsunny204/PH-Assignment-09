@@ -23,36 +23,36 @@ const GameHubSlider = () => {
       title: "Discover Amazing Games",
       text: "Browse and explore the latest trending games on GameHub.",
       button: "Explore Games",
-      link: "/apps"
+      link: "/apps",
     },
     {
       image: s1,
       title: "Play. Compete. Win.",
       text: "Challenge your friends and climb to the top of the leaderboard.",
       button: "View Leaderboard",
-      link: "/installed-apps"
+      link: "/apps",
     },
     {
       image: s2,
       title: "Game Reviews & Details",
       text: "See ratings, reviews, and details before you download.",
       button: "Browse Details",
-      link: "/apps"
+      link: "/apps",
     },
     {
       image: s3,
       title: "Install With One Click",
       text: "Fast and secure downloads directly from GameHub.",
       button: "Download Now",
-      link: "/apps"
+      link: "/apps",
     },
     {
       image: s4,
       title: "Your Ultimate Gaming Hub",
       text: "All your favorite games — collected in one place.",
       button: "Get Started",
-      link: "/"
-    }
+      link: "/apps",
+    },
   ];
 
   return (
@@ -70,27 +70,21 @@ const GameHubSlider = () => {
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
             <div className="relative w-full h-full">
-
-              {/* background image */}
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
 
-              {/* dark overlay */}
               <div className="absolute inset-0 bg-black/60" />
 
-              {/* text content */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white px-4 max-w-2xl">
                   <h2 className="text-3xl md:text-5xl font-bold mb-4">
                     {slide.title}
                   </h2>
 
-                  <p className="text-lg md:text-xl mb-6">
-                    {slide.text}
-                  </p>
+                  <p className="text-lg md:text-xl mb-6">{slide.text}</p>
 
                   <Link
                     to={slide.link}
@@ -100,7 +94,6 @@ const GameHubSlider = () => {
                   </Link>
                 </div>
               </div>
-
             </div>
           </SwiperSlide>
         ))}

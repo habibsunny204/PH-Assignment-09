@@ -10,6 +10,8 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import PrivateRoute from "./Privateroute";
 import SignUp from "../Components/SignUp";
 import Login from "../Components/Login";
+import Myprofile from "../Components/Myprofile";
+import ForgetPassword from "../Components/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp /> 
+        element: <SignUp />,
       },
       {
         path: "/login",
-        element: <Login /> 
+        element: <Login />,
       },
       {
         path: "/apps",
@@ -58,7 +60,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
+      {
+        path: "/myprofile",
+        element: (
+          <PrivateRoute>
+            <Myprofile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/forgetpassword',
+        element: <ForgetPassword />,
+      },
       {
         path: "*",
         element: <ErrorPage />,

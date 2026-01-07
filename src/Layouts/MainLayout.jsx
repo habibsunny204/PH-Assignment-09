@@ -3,12 +3,16 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { Outlet, useNavigation } from "react-router";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { Toaster } from "react-hot-toast";
 
 const MainLayout = () => {
   const navigation = useNavigation();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
+      <Toaster position="top-center" reverseOrder={false} />
+
       {navigation.state === "loading" ? (
         <LoadingSpinner />
       ) : (
@@ -16,6 +20,7 @@ const MainLayout = () => {
           <Outlet />
         </main>
       )}
+
       <Footer />
     </div>
   );

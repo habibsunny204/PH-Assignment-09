@@ -4,7 +4,6 @@ import heroPhone from "../assets/hero.png";
 import appstore from "../assets/appstore.png";
 import googleplay from "../assets/googleplay.png";
 import { FiDownload } from "react-icons/fi";
-import { FaStar, FaGooglePlay } from "react-icons/fa";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import AppCard from "../Components/AppCard";
 import useApps from "../hooks/useApps";
@@ -28,14 +27,14 @@ const Home = () => {
 
   return (
     <div className="w-full">
-       <GameHubSlider />
+      <GameHubSlider />
       <section className="bg-white py-12">
         <div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-7">
           <div className="flex flex-col items-center">
             <h1 className="text-3xl font-bold tracking-tight text-gray-800">
-              Trending Apps
+              Popular Games
             </h1>
-            <p className="text-gray-400">Explore All Trending Apps on the Market developed by us</p>
+            <p className="text-gray-400">Explore All Trending Games on the Market developed by us</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
