@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import toast from "react-hot-toast";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Myprofile = () => {
+  usePageTitle("My Profile");
   const [isEditing, setIsEditing] = useState(false);
   const { user, setUser, updateUser } = useContext(AuthContext);
 

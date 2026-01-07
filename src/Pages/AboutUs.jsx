@@ -10,8 +10,10 @@ import {
   FaChartLine,
   FaCrown,
 } from "react-icons/fa";
+import usePageTitle from "../hooks/usePageTitle";
 
 const AboutUs = () => {
+  usePageTitle("About us");
   useEffect(() => {
     AOS.init({ duration: 900, offset: 80 });
   }, []);

@@ -3,10 +3,12 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import AppCard from "../Components/AppCard";
 import useApps from "../hooks/useApps";
 import notFoundImg from "../assets/App-Error.png";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Apps = () => {
   const { apps, loading, error } = useApps();
   const [searchTerm, setSearchTerm] = useState("");
+  usePageTitle("All Games");
 
   const filteredApps = apps.filter((app) =>
     app.title.toLowerCase().includes(searchTerm.trim().toLowerCase())

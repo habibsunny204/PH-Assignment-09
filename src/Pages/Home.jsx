@@ -6,8 +6,10 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import useApps from "../hooks/useApps";
 import Newsletter from "../Components/Newsletter";
 import gsap from "gsap";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Home = () => {
+  usePageTitle("Home");
   const { apps, loading, error } = useApps();
 
   const featuredApps = [...apps]
@@ -57,7 +59,7 @@ const Home = () => {
               Popular Games
             </h1>
             <p className="text-gray-400 mt-2">
-              Explore the top-rated titles created by our studio
+              Explore the top-rated games created by our studio
             </p>
           </div>
 

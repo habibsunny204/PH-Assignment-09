@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import usePageTitle from "../hooks/usePageTitle";
 
 const SignUp = () => {
+  usePageTitle("Signup Page");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);

@@ -4,8 +4,10 @@ import { AuthContext } from "../Contexts/AuthContext";
 import { use } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Login = () => {
+  usePageTitle("Login Page");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);

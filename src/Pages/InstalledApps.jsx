@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useInstalledApps } from "../context/InstalledAppsContext";
 import downloadIcon from "../assets/icon-downloads.png";
 import starIcon from "../assets/icon-ratings.png";
+import usePageTitle from "../hooks/usePageTitle";
 
 const formatShortNumber = (num) => {
   if (num >= 1_000_000_000) return `${Math.round(num / 1_000_000_000)}B`;
@@ -11,6 +12,7 @@ const formatShortNumber = (num) => {
 };
 
 const InstalledApps = () => {
+  usePageTitle("Installed Games");
   const { installedApps, uninstallApp } = useInstalledApps();
   const [showModal, setShowModal] = useState(false);
   const [selectedApp, setSelectedApp] = useState(null);

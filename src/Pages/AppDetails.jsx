@@ -4,8 +4,10 @@ import useApps from "../hooks/useApps";
 import downloadIcon from "../assets/icon-downloads.png";
 import starIcon from "../assets/icon-ratings.png";
 import { useInstalledApps } from "../context/InstalledAppsContext";
+import usePageTitle from "../hooks/usePageTitle";
 
 const AppDetails = () => {
+  usePageTitle("Game Details");
   const { id } = useParams();
   const { apps, loading } = useApps();
   const { installedApps, installApp } = useInstalledApps();
