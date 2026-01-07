@@ -12,20 +12,19 @@ const AppDetails = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading)
+    return <p className="text-center mt-10 text-white">Loading...</p>;
 
   const app = apps.find((a) => String(a.id) === id);
 
   if (!app)
     return (
-      <div className="text-center mt-10">
-        <p className="text-lg font-semibold text-gray-700 mb-4">
-          App not found.
-        </p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0b0e1a] text-white">
+        <p className="text-lg font-semibold mb-4">App not found.</p>
 
         <a
           href="/"
-          className="inline-block px-5 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-500 transition"
+          className="px-5 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-lg shadow hover:opacity-90 transition"
         >
           Return Home
         </a>
@@ -54,11 +53,11 @@ const AppDetails = () => {
   const max = Math.max(...ratings.map((r) => r.count));
 
   return (
-    <div className="bg-[#F4F5F9] min-h-screen py-10">
+    <div className="bg-[#0b0e1a] min-h-screen py-12 text-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-white rounded-3xl px-8 py-8 shadow">
-          <div className="flex gap-10">
-            <div className="w-40 h-40 bg-[#F4F5F9] rounded-3xl flex items-center justify-center shadow">
+        <div className="bg-white/10 border border-white/10 rounded-3xl px-8 py-8 shadow-xl backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="w-40 h-40 bg-white/10 border border-white/10 rounded-3xl flex items-center justify-center shadow">
               <img
                 src={image}
                 alt={title}
@@ -67,20 +66,20 @@ const AppDetails = () => {
             </div>
 
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+              <h1 className="text-3xl font-bold">{title}</h1>
 
-              <p className="text-sm text-gray-700 mt-1">
+              <p className="text-gray-300 mt-1">
                 Developed by{" "}
-                <span className="text-purple-600 font-medium">
+                <span className="text-purple-400 font-medium">
                   {companyName}
                 </span>
               </p>
 
-              <div className="border-b my-4" />
+              <div className="border-b border-white/10 my-4" />
 
               <div className="flex gap-12 items-center flex-wrap">
                 <div>
-                  <p className="text-xs text-gray-600">Downloads</p>
+                  <p className="text-xs text-gray-400">Downloads</p>
                   <div className="flex gap-2 items-center font-bold">
                     {downloads.toLocaleString()}
                     <img src={downloadIcon} className="w-4" alt="" />
@@ -88,7 +87,7 @@ const AppDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs text-gray-600">Average Ratings</p>
+                  <p className="text-xs text-gray-400">Average Rating</p>
                   <div className="flex gap-2 items-center font-bold">
                     {ratingAvg.toFixed(1)}
                     <img src={starIcon} className="w-4" alt="" />
@@ -96,7 +95,7 @@ const AppDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs text-gray-600">Total Reviews</p>
+                  <p className="text-xs text-gray-400">Total Reviews</p>
                   <div className="flex gap-2 items-center font-bold">
                     {reviews.toLocaleString()}
                     <img src={starIcon} className="w-4" alt="" />
@@ -106,7 +105,7 @@ const AppDetails = () => {
                 {!installed ? (
                   <button
                     onClick={handleInstall}
-                    className="px-6 py-2 rounded-md bg-emerald-500 text-white font-semibold shadow"
+                    className="px-6 py-2 rounded-md bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold shadow hover:opacity-90 transition"
                   >
                     Install Now ({Math.round(size)}MB)
                   </button>
@@ -123,21 +122,21 @@ const AppDetails = () => {
           </div>
         </div>
 
-        <h2 className="mt-10 text-xl font-bold text-gray-900">Ratings</h2>
+        <h2 className="mt-10 text-xl font-bold">Ratings</h2>
 
         <div className="mt-5">
           {ratings.map((r) => (
             <div key={r.name} className="flex items-center mb-3 gap-4">
               <span className="w-14 text-sm">{r.name}</span>
 
-              <div className="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
+              <div className="w-full bg-white/10 h-4 rounded-full overflow-hidden">
                 <div
                   className="bg-emerald-400 h-4 rounded-full"
                   style={{ width: `${(r.count / max) * 100}%` }}
                 />
               </div>
 
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-gray-300">
                 {r.count.toLocaleString()}
               </span>
             </div>
@@ -145,25 +144,25 @@ const AppDetails = () => {
         </div>
 
         <h2 className="mt-10 text-xl font-bold">Description</h2>
-        <p className="mt-4 text-gray-700 leading-relaxed">{description}</p>
+        <p className="mt-4 text-gray-300 leading-relaxed">{description}</p>
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
-          <div className="bg-white rounded-xl p-5 shadow-lg w-[350px]">
-            <div className="flex justify-between">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+          <div className="bg-[#12172a] text-white rounded-xl p-5 shadow-lg w-[350px] border border-white/10">
+            <div className="flex justify-between items-center">
               <h3 className="font-semibold">Installed</h3>
               <button onClick={() => setShowModal(false)}>✕</button>
             </div>
 
-            <p className="mt-2 text-sm">
+            <p className="mt-3 text-sm">
               Yahoo ⚡!! <span className="font-semibold">{title}</span>{" "}
               Installed Successfully
             </p>
 
             <button
               onClick={() => setShowModal(false)}
-              className="mt-4 px-5 py-2 bg-emerald-500 text-white rounded-md w-full"
+              className="mt-5 px-5 py-2 bg-emerald-500 text-white rounded-md w-full hover:bg-emerald-400 transition"
             >
               Close
             </button>

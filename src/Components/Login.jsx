@@ -18,24 +18,20 @@ const Login = () => {
 
   const { signInUser, signInWithGoogle } = use(AuthContext);
 
-  const notify = () => toast.success("Logged in successfully!");
+  const notify = () => toast.success("Logged in successfully! 🎮");
 
   const getFriendlyError = (code) => {
     switch (code) {
       case "auth/invalid-email":
         return "Please enter a valid email address.";
-
       case "auth/user-disabled":
         return "This account has been disabled.";
-
       case "auth/user-not-found":
       case "auth/wrong-password":
       case "auth/invalid-credential":
         return "Email or password is incorrect.";
-
       case "auth/too-many-requests":
         return "Too many attempts. Try again later.";
-
       default:
         return "Something went wrong. Please try again.";
     }
@@ -59,10 +55,7 @@ const Login = () => {
         event.target.reset();
         navigate(from, { replace: true });
       })
-      .catch((err) => {
-        console.log(err);
-        setError(getFriendlyError(err.code));
-      });
+      .catch((err) => setError(getFriendlyError(err.code)));
   };
 
   const handleGoogleSignIn = (event) => {
@@ -73,104 +66,97 @@ const Login = () => {
         notify();
         navigate(from, { replace: true });
       })
-      .catch((err) => {
-        console.log(err);
-        setError(getFriendlyError(err.code));
-      });
+      .catch((err) => setError(getFriendlyError(err.code)));
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl text-blue-600 font-bold">
-            Login now!
-          </h1>
-        </div>
+    <div className="min-h-screen bg-[#0b0e1a] flex items-center justify-center px-4">
+     
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-10 left-0 w-64 h-64 bg-purple-600/20 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-600/20 blur-3xl rounded-full" />
+      </div>
 
-        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
-          <div className="card-body">
-            <form onSubmit={handleLogIn}>
-              <fieldset className="fieldset">
+      <div className="relative max-w-md w-full bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
+        <h1 className="text-3xl font-bold text-white text-center mb-6">
+          Login to GameHub
+        </h1>
 
-                <label className="label">Email</label>
-                <input
-                  type="email"
-                  className="input"
-                  name="email"
-                  placeholder="Email"
-                  ref={emailRef}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+        <form onSubmit={handleLogIn}>
+          <fieldset className="space-y-3 flex flex-col">
+            <label className="label text-gray-300">Email</label>
+            <input
+              type="email"
+              className="input bg-white/90 text-gray-900"
+              name="email"
+              placeholder="Email"
+              ref={emailRef}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-                <label className="label">Password</label>
+            <label className="label text-gray-300 text-sm">Password</label>
 
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    className="input"
-                    name="password"
-                    placeholder="Password"
-                  />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="input bg-white/90 text-gray-900"
+                name="password"
+                placeholder="Password"
+              />
 
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setShowPassword(!showPassword);
-                    }}
-                    className="btn btn-xs absolute top-2 right-5"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                </div>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword(!showPassword);
+                }}
+                className="btn btn-xs absolute top-2 right-5"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
 
-                <div className="mt-1">
-                  <Link
-                    to="/forgetpassword"
-                    state={{ email }}
-                    className="link link-hover"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+            <div className="mt-1">
+              <Link
+                to="/forgetpassword"
+                state={{ email }}
+                className="text-purple-300 hover:text-white text-sm"
+              >
+                Forgot password?
+              </Link>
+            </div>
 
-                <button className="btn bg-blue-600 text-white mt-4">
-                  Login
-                </button>
+            <button className="btn mt-3 w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold">
+              Login
+            </button>
 
-                <button
-                  onClick={handleGoogleSignIn}
-                  className="btn bg-white text-black border mt-2"
-                >
-                  Login with Google
-                </button>
-              </fieldset>
+            <button
+              onClick={handleGoogleSignIn}
+              className="btn w-full bg-white text-black border mt-2"
+            >
+              Login with Google
+            </button>
+          </fieldset>
 
-              <p className="mt-3">
-                Don't have an account?{" "}
-                <Link
-                  to="/signup"
-                  className="text-blue-500 hover:text-blue-800"
-                >
-                  SignUp
-                </Link>
-              </p>
+          <p className="mt-4 text-gray-300 text-sm text-center">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-purple-300 hover:text-white">
+              Sign Up
+            </Link>
+          </p>
 
-              {success && (
-                <p className="text-green-500 mt-2">
-                  Logged in successfully!
-                </p>
-              )}
+          {success && (
+            <p className="text-green-400 mt-3 text-center">
+              Logged in successfully!
+            </p>
+          )}
 
-              {error && (
-                <div className="mt-2 p-2 bg-red-100 text-red-700 rounded">
-                  {error}
-                </div>
-              )}
-            </form>
-          </div>
-        </div>
+          {error && (
+            <div className="mt-3 p-3 bg-red-500/20 text-red-300 rounded border border-red-500/30 text-sm">
+              {error}
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );

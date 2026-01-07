@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import { Outlet, useNavigation } from "react-router";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Toaster } from "react-hot-toast";
+import "aos/dist/aos.css";
 
 const MainLayout = () => {
   const navigation = useNavigation();

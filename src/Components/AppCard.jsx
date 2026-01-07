@@ -5,6 +5,7 @@ import { Link } from "react-router";
 
 const AppCard = ({ app }) => {
   const { image, title, id, ratingAvg, downloads } = app;
+
   const formatDownloads = (num) => {
     if (num >= 1_000_000_000) return `${Math.round(num / 1_000_000_000)}B`;
     if (num >= 1_000_000) return `${Math.round(num / 1_000_000)}M`;
@@ -13,28 +14,41 @@ const AppCard = ({ app }) => {
   };
 
   return (
-    <Link to={`/apps/${id}`}
-      className="bg-white rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 
-                transition-all duration-300 ease-out flex flex-col overflow-hidden"
+    <Link
+      to={`/apps/${id}`}
+      className="
+        bg-white/10
+        backdrop-blur-xl
+        border border-white/15
+        rounded-3xl
+        shadow-lg
+        hover:shadow-purple-500/20
+        hover:-translate-y-1
+        hover:scale-[1.02]
+        transition-all duration-300 ease-out
+        flex flex-col overflow-hidden
+      "
     >
-      <div className=" flex items-center justify-center p-6">
+      <div className="flex items-center justify-center p-6">
         <img
           src={image}
           alt={title}
           className="w-full h-56 object-contain rounded-2xl"
         />
       </div>
+
       <div className="flex-1 flex flex-col justify-between px-6 pb-5 pt-4">
-        <h3 className="text-center font-semibold text-gray-900 text-lg leading-snug">
+        <h3 className="text-center font-semibold text-white text-lg leading-snug">
           {title}
         </h3>
 
         <div className="mt-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 bg-emerald-100 text-emerald-600 px-3 py-1 rounded-xl text-sm font-semibold">
+          <div className="flex items-center gap-2 bg-emerald-900/40 text-emerald-300 px-3 py-1 rounded-xl text-sm font-semibold">
             <img src={downloadIcon} alt="Downloads" className="w-4 h-4" />
             <span>{formatDownloads(downloads)}</span>
           </div>
-          <div className="flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-xl text-sm font-semibold">
+
+          <div className="flex items-center gap-2 bg-purple-900/40 text-purple-300 px-3 py-1 rounded-xl text-sm font-semibold">
             <img src={starIcon} alt="Rating" className="w-4 h-4" />
             <span>{ratingAvg.toFixed(1)}</span>
           </div>

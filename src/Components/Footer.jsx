@@ -4,7 +4,7 @@ import { FaGithub, FaYoutube, FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#021d3a] to-[#000d1f] text-white py-14 mt-10">
+    <footer className="bg-gradient-to-b from-[#0b0f1a] to-[#000d1f] text-white py-14">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
           <div className="space-y-4">

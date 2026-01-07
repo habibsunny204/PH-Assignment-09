@@ -4,7 +4,7 @@ import AppCard from "../Components/AppCard";
 import useApps from "../hooks/useApps";
 import notFoundImg from "../assets/App-Error.png";
 
-const App = () => {
+const Apps = () => {
   const { apps, loading, error } = useApps();
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -12,46 +12,46 @@ const App = () => {
     app.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
   );
 
-  if (loading) {
-    return <LoadingSpinner />;
-  }
+  if (loading) return <LoadingSpinner />;
 
-  if (error) {
+  if (error)
     return (
-      <div className="min-h-screen flex items-center justify-center text-red-500">
+      <div className="min-h-screen flex items-center justify-center text-red-400">
         {error}
       </div>
     );
-  }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <div className="flex flex-col items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 ">
-            Our All Applications
-          </h1>
-          <p className="text-gray-400">
-            Explore All Apps on the Market developed by us. We code for Millions
+    <div className="min-h-screen bg-[#0b0e1a] pt-10 pb-16">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex flex-col items-center mb-6 text-center">
+          <h1 className="text-3xl font-bold text-white">Our All Games</h1>
+          <p className="text-gray-400 mt-1">
+            Explore all the games crafted for millions of players worldwide
           </p>
         </div>
-        <div className="flex items-center justify-between mt-4 gap-4 flex-wrap">
-          <div>
-            <h2 className="font-bold underline">
-              ({filteredApps.length})Apps found
-            </h2>
-          </div>
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Search Apps..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+
+        <div className="flex items-center justify-between mt-6 gap-4 flex-wrap">
+          <h2 className="font-semibold text-gray-300">
+            ({filteredApps.length}) Games found
+          </h2>
+
+          <input
+            type="text"
+            placeholder="Search games..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="
+              w-full max-w-md px-4 py-2
+              bg-white/10 border border-white/20
+              text-white placeholder-gray-400
+              rounded-lg shadow
+              focus:outline-none focus:ring-2 focus:ring-purple-500
+            "
+          />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredApps.length > 0 ? (
             filteredApps.map((app) => <AppCard key={app.id} app={app} />)
           ) : (
@@ -59,21 +59,26 @@ const App = () => {
               <img
                 src={notFoundImg}
                 alt="App Not Found"
-                className="w-[420px] max-w-full mb-6"
+                className="w-[420px] max-w-full mb-6 opacity-90"
               />
 
-              <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">
-                OPPS!! APP NOT FOUND
+              <h2 className="text-2xl font-bold text-white mb-2 text-center">
+                Oops! Game Not Found
               </h2>
 
-              <p className="text-slate-500 text-center max-w-md mb-6">
-                The app you are searching for is not found in our system. Please
-                try another one.
+              <p className="text-gray-400 text-center max-w-md mb-6">
+                The game you’re searching for doesn’t exist in our database. Try
+                searching something else.
               </p>
 
               <button
                 onClick={() => setSearchTerm("")}
-                className="px-6 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-500 transition"
+                className="
+                  px-6 py-2
+                  bg-gradient-to-r from-purple-500 to-indigo-500
+                  text-white rounded-lg
+                  shadow hover:opacity-90 transition
+                "
               >
                 Clear Search
               </button>
@@ -85,4 +90,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Apps;

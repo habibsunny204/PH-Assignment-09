@@ -1,55 +1,88 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router";
-import heroPhone from "../assets/hero.png";
-import appstore from "../assets/appstore.png";
-import googleplay from "../assets/googleplay.png";
-import { FiDownload } from "react-icons/fi";
-import LoadingSpinner from "../Components/LoadingSpinner";
-import AppCard from "../Components/AppCard";
-import useApps from "../hooks/useApps";
 import GameHubSlider from "../Components/GameHubSlider";
+import AppCard from "../Components/AppCard";
+import LoadingSpinner from "../Components/LoadingSpinner";
+import useApps from "../hooks/useApps";
+import Newsletter from "../Components/Newsletter";
+import gsap from "gsap";
 
 const Home = () => {
   const { apps, loading, error } = useApps();
-  const featuredApps = apps.slice(0, 8);
 
-  if (loading) {
-    return <LoadingSpinner />;
-  }
+  const featuredApps = [...apps]
+    .sort((a, b) => b.ratingAvg - a.ratingAvg)
+    .slice(0, 8);
 
-  if (error) {
+  const titleRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    gsap.from(titleRef.current, {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.from(cardsRef.current, {
+      opacity: 0,
+      y: 35,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: "power2.out",
+    });
+  }, []);
+
+  if (loading) return <LoadingSpinner />;
+
+  if (error)
     return (
       <div className="min-h-screen flex items-center justify-center text-red-500">
         {error}
       </div>
     );
-  }
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#0b0f1a]">
       <GameHubSlider />
-      <section className="bg-white py-12">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-7">
-          <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-800">
+
+      <section className="relative py-16">
+        <div className="absolute -top-10 left-0 w-64 h-64 bg-purple-600/20 blur-3xl rounded-full" />
+        <div className="absolute top-20 right-0 w-64 h-64 bg-indigo-500/20 blur-3xl rounded-full" />
+
+        <div className="max-w-6xl mx-auto px-5 relative flex flex-col items-center gap-10">
+          <div ref={titleRef} className="text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
               Popular Games
             </h1>
-            <p className="text-gray-400">Explore All Trending Games on the Market developed by us</p>
+            <p className="text-gray-400 mt-2">
+              Explore the top-rated titles created by our studio
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredApps.map((app) => (
-              <AppCard key={app.id} app={app} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+            {featuredApps.map((app, index) => (
+              <div
+                key={app.id}
+                ref={(el) => (cardsRef.current[index] = el)}
+                className="bg-white/5 border border-white/10 rounded-xl p-2 backdrop-blur-lg shadow-xl hover:border-purple-400/40 transition"
+              >
+                <AppCard app={app} />
+              </div>
             ))}
           </div>
+
           <Link
             to="/apps"
-            className="bg-linear-to-r from-purple-600 to-purple-400 text-white px-6 py-3 rounded-lg text-sm font-semibold shadow-md hover:opacity-90 active:scale-95 transition"
+            className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-7 py-3 rounded-lg font-semibold shadow hover:opacity-90 active:scale-95 transition"
           >
             Show All
           </Link>
         </div>
       </section>
+
+      <Newsletter />
     </div>
   );
 };

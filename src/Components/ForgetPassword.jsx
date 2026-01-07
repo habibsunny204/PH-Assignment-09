@@ -13,65 +13,58 @@ const ForgetPassword = () => {
 
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success("Password reset email sent!");
+        toast.success("Password reset email sent! 📩");
 
         setTimeout(() => {
           window.open("https://mail.google.com", "_blank");
         }, 1200);
       })
       .catch((error) => {
-        toast.error(error.message);
+        toast.error("Something went wrong. Try again.");
         console.log(error);
       });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="card max-w-md w-full bg-white rounded-xl shadow-2xl p-8">
-        <div className="card-body text-center mb-8">
-          <h2 className="text-center text-3xl font-bold text-gray-800">
-            Forgot Password?
-          </h2>
-          <p className="text-gray-600 mt-2">
-            Enter your email to reset your password
-          </p>
+    <div className="min-h-screen bg-[#0f1220] flex items-center justify-center px-4">
+      <div className="max-w-md w-full bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
 
-          <form onSubmit={handleForgetPassword} className="space-y-6">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-sm font-medium text-gray-700">
-                  Email
-                </span>
-              </label>
+        <h2 className="text-3xl font-bold text-white text-center">
+          Forgot Password?
+        </h2>
 
-              <input
-                type="email"
-                value={email}
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                className="input input-bordered w-full py-3 rounded-lg"
-                required
-              />
-            </div>
+        <p className="text-gray-300 text-center mt-2">
+          Enter your email to reset your password
+        </p>
 
-            <button
-              type="submit"
-              className="btn bg-blue-600 text-white w-full hover:bg-blue-700"
-            >
-              Reset Password
-            </button>
-          </form>
+        <form onSubmit={handleForgetPassword} className="mt-6 space-y-6">
 
-          <p className="mt-6 text-sm text-gray-600">
-            Remember your password?{" "}
-            <Link
-              to="/login"
-              className="text-blue-600 font-medium hover:text-blue-700"
-            >
-              Login
-            </Link>
-          </p>
-        </div>
+          <div>
+            <label className="text-gray-300 text-sm">Email</label>
+            <input
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              className="input bg-white/90 text-gray-900 w-full mt-1"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold"
+          >
+            Reset Password
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-gray-300 text-sm">
+          Remember your password?{" "}
+          <Link to="/login" className="text-purple-300 hover:text-white">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

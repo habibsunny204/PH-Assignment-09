@@ -1,23 +1,22 @@
-import React, { use, useState } from "react";
-
+import React, { useState, useContext } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const Myprofile = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const { user, setUser, updateUser } = use(AuthContext);
+  const { user, setUser, updateUser } = useContext(AuthContext);
+
   const handleUpdate = (e) => {
     e.preventDefault();
+
     const displayName = e.target.name.value;
     const photoURL = e.target.photo.value;
-    const notify = () => toast.success("Profile Updated!");
+
     const updatedData = {};
-    if (photoURL) {
-      updatedData.photoURL = photoURL;
-    }
-    if (displayName) {
-      updatedData.displayName = displayName;
-    }
+    const notify = () => toast.success("Profile Updated!");
+
+    if (photoURL) updatedData.photoURL = photoURL;
+    if (displayName) updatedData.displayName = displayName;
 
     if (Object.keys(updatedData).length > 0) {
       updateUser(updatedData)
@@ -26,58 +25,59 @@ const Myprofile = () => {
             ...prev,
             ...updatedData,
           }));
+
           setIsEditing(false);
           notify();
           e.target.reset();
         })
-        .catch((err) => {
-          console.log("Update error:", err);
-        });
-    } else {
-      console.log("No fields to update");
+        .catch((err) => console.log("Update error:", err));
     }
   };
-  return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-32"></div>
 
-          <div className="relative px-8 pb-8">
+  return (
+    <div className="min-h-screen bg-[#0f1220] py-12 px-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden">
+          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 h-36" />
+
+          <div className="relative px-8 pb-10">
             <div className="flex flex-col items-center -mt-16">
               <img
-                src={user.photoURL}
-                alt={user.displayName}
-                className="h-32 w-32 rounded-full border-4 border-white shadow-lg object-cover"
+                src={user.photoURL || "https://i.ibb.co/Y36sQjp/user.png"}
+                alt={user.displayName || "User"}
+                className="h-32 w-32 rounded-full border-4 border-white shadow-xl object-cover"
               />
-              <h2 className="mt-4 text-2xl font-bold text-gray-800">
-                {user.displayName}
+
+              <h2 className="mt-4 text-2xl font-bold text-white">
+                {user.displayName || "User"}
               </h2>
-              <p className="text-gray-600">{user.email}</p>
+
+              <p className="text-gray-300">{user.email}</p>
             </div>
+
             <div className="mt-8 space-y-4">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Full Name</p>
-                <p className="text-lg font-medium text-gray-800">
-                  {user.displayName}
+              <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                <p className="text-gray-400 text-sm">Full Name</p>
+                <p className="text-white font-medium">
+                  {user.displayName || "Not set"}
                 </p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Email Address</p>
-                <p className="text-lg font-medium text-gray-800">
-                  {user.email}
-                </p>
+
+              <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                <p className="text-gray-400 text-sm">Email Address</p>
+                <p className="text-white font-medium">{user.email}</p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Profile Picture</p>
-                <p className="text-sm font-medium text-gray-800 break-all">
-                  {user.photoURL}
+
+              <div className="bg-white/5 border border-white/10 rounded-lg p-4 break-all">
+                <p className="text-gray-400 text-sm">Profile Picture</p>
+                <p className="text-gray-200 text-sm">
+                  {user.photoURL || "Not set"}
                 </p>
               </div>
 
               <button
                 onClick={() => setIsEditing(true)}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors mt-6"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
               >
                 Update Profile
               </button>
@@ -86,36 +86,39 @@ const Myprofile = () => {
             {isEditing && (
               <form onSubmit={handleUpdate} className="mt-8 space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="text-gray-300 text-sm mb-1 block">
                     Name
                   </label>
                   <input
                     type="text"
                     name="name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 rounded-lg bg-white/90 text-gray-900 focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="text-gray-300 text-sm mb-1 block">
                     Photo URL
                   </label>
                   <input
                     type="url"
                     name="photo"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 rounded-lg bg-white/90 text-gray-900 focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
-                <div className="flex space-x-4">
+
+                <div className="flex gap-3">
                   <button
                     type="submit"
-                    className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors"
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
                   >
                     Save Changes
                   </button>
+
                   <button
                     type="button"
                     onClick={() => setIsEditing(false)}
-                    className="flex-1 bg-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-400 font-semibold transition-colors"
+                    className="flex-1 bg-gray-300 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-400 transition"
                   >
                     Cancel
                   </button>
