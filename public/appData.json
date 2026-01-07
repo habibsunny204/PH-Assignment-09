@@ -1,0 +1,272 @@
+[
+  {
+    "image": "/app-logos/whatsapp.png",
+    "title": "WhatsApp Messenger",
+    "companyName": "Meta",
+    "id": 1,
+    "description": "Free messaging and video calling app; widely used around the world.",
+    "size": 49.8,
+    "reviews": 211629397,
+    "ratingAvg": 4.39,
+    "downloads": 10000000000,
+    "ratings": [
+      { "name": "1 star", "count": 1200000 },
+      { "name": "2 star", "count": 4500000 },
+      { "name": "3 star", "count": 9000000 },
+      { "name": "4 star", "count": 18500000 },
+      { "name": "5 star", "count": 19300000 }
+    ]
+  },
+  {
+    "image": "/app-logos/facebook.png",
+    "title": "Facebook",
+    "companyName": "Meta Platforms, Inc.",
+    "id": 2,
+    "description": "Social media app for connecting with friends, sharing posts, photos, and videos.",
+    "size": 65.3,
+    "reviews": 173724360,
+    "ratingAvg": 4.54,
+    "downloads": 10000000000,
+    "ratings": [
+      { "name": "1 star", "count": 900000 },
+      { "name": "2 star", "count": 3000000 },
+      { "name": "3 star", "count": 7000000 },
+      { "name": "4 star", "count": 64000000 },
+      { "name": "5 star", "count": 16650000 }
+    ]
+  },
+  {
+    "image": "/app-logos/youtube.png",
+    "title": "YouTube",
+    "companyName": "Google LLC",
+    "id": 3,
+    "description": "Video streaming platform with billions of videos across genres.",
+    "size": 55.1,
+    "reviews": 166375176,
+    "ratingAvg": 3.93,
+    "downloads": 10000000000,
+    "ratings": [
+      { "name": "1 star", "count": 2000000 },
+      { "name": "2 star", "count": 900000 },
+      { "name": "3 star", "count": 3500000 },
+      { "name": "4 star", "count": 32000000 },
+      { "name": "5 star", "count": 130000000 }
+    ]
+  },
+  {
+    "image": "/app-logos/instagram.png",
+    "title": "Instagram",
+    "companyName": "Meta",
+    "id": 4,
+    "description": "Photo and video sharing social network with Stories and Reels features.",
+    "size": 59.2,
+    "reviews": 164862761,
+    "ratingAvg": 3.94,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 1100000 },
+      { "name": "2 star", "count": 500000 },
+      { "name": "3 star", "count": 800000 },
+      { "name": "4 star", "count": 9000000 },
+      { "name": "5 star", "count": 155500000 }
+    ]
+  },
+  {
+    "image": "/app-logos/messenger.png",
+    "title": "Messenger",
+    "companyName": "Meta Platforms, Inc.",
+    "id": 5,
+    "description": "Instant messaging and video-calling app from Facebook team.",
+    "size": 48.5,
+    "reviews": 120000000,
+    "ratingAvg": 4.25,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 800000 },
+      { "name": "2 star", "count": 400000 },
+      { "name": "3 star", "count": 700000 },
+      { "name": "4 star", "count": 5000000 },
+      { "name": "5 star", "count": 113000000 }
+    ]
+  },
+  {
+    "image": "/app-logos/googlemap.png",
+    "title": "Google Maps",
+    "companyName": "Google LLC",
+    "id": 6,
+    "description": "Navigation and maps app providing driving, walking and transit directions worldwide.",
+    "size": 62.7,
+    "reviews": 95000000,
+    "ratingAvg": 4.45,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 500000 },
+      { "name": "2 star", "count": 200000 },
+      { "name": "3 star", "count": 400000 },
+      { "name": "4 star", "count": 7200000 },
+      { "name": "5 star", "count": 88000000 }
+    ]
+  },
+  {
+    "image": "/app-logos/chrome.png",
+    "title": "Google Chrome",
+    "companyName": "Google LLC",
+    "id": 7,
+    "description": "Popular web browser — fast, secure, syncs across devices.",
+    "size": 48.0,
+    "reviews": 85000000,
+    "ratingAvg": 4.3,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 600000 },
+      { "name": "2 star", "count": 300000 },
+      { "name": "3 star", "count": 500000 },
+      { "name": "4 star", "count": 6500000 },
+      { "name": "5 star", "count": 77400000 }
+    ]
+  },
+  {
+    "image": "/app-logos/gmail.png",
+    "title": "Gmail",
+    "companyName": "Google LLC",
+    "id": 8,
+    "description": "Email app from Google with powerful features and integration with other Google services.",
+    "size": 46.9,
+    "reviews": 70000000,
+    "ratingAvg": 4.2,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 550000 },
+      { "name": "2 star", "count": 250000 },
+      { "name": "3 star", "count": 450000 },
+      { "name": "4 star", "count": 6000000 },
+      { "name": "5 star", "count": 63500000 }
+    ]
+  },
+  {
+    "image": "/app-logos/google-photos.png",
+    "title": "Google Photos",
+    "companyName": "Google LLC",
+    "id": 9,
+    "description": "Photo backup, sharing and management from Google.",
+    "size": 52.4,
+    "reviews": 60000000,
+    "ratingAvg": 4.35,
+    "downloads": 5000000000,
+    "ratings": [
+      { "name": "1 star", "count": 400000 },
+      { "name": "2 star", "count": 200000 },
+      { "name": "3 star", "count": 300000 },
+      { "name": "4 star", "count": 5500000 },
+      { "name": "5 star", "count": 54000000 }
+    ]
+  },
+  {
+    "image": "/app-logos/pubg.png",
+    "title": "PUBG MOBILE",
+    "companyName": "Tencent Games",
+    "id": 10,
+    "description": "Battle royale mobile game with millions of players worldwide.",
+    "size": 102.7,
+    "reviews": 45000000,
+    "ratingAvg": 4.15,
+    "downloads": 1000000000,
+    "ratings": [
+      { "name": "1 star", "count": 1000000 },
+      { "name": "2 star", "count": 500000 },
+      { "name": "3 star", "count": 1500000 },
+      { "name": "4 star", "count": 6000000 },
+      { "name": "5 star", "count": 41750000 }
+    ]
+  },
+  {
+    "image": "/app-logos/tiktok.png",
+    "title": "TikTok",
+    "companyName": "TikTok Pte. Ltd.",
+    "id": 11,
+    "description": "Short-video social platform, huge global user base and trending content.",
+    "size": 75.3,
+    "reviews": 78000000,
+    "ratingAvg": 4.26,
+    "downloads": 3000000000,
+    "ratings": [
+      { "name": "1 star", "count": 800000 },
+      { "name": "2 star", "count": 450000 },
+      { "name": "3 star", "count": 800000 },
+      { "name": "4 star", "count": 7000000 },
+      { "name": "5 star", "count": 69200000 }
+    ]
+  },
+  {
+    "image": "/app-logos/capcut.png",
+    "title": "CapCut",
+    "companyName": "Bytedance",
+    "id": 12,
+    "description": "Video editing app popular for short-form and social-media content creation.",
+    "size": 68.4,
+    "reviews": 32000000,
+    "ratingAvg": 4.31,
+    "downloads": 1200000000,
+    "ratings": [
+      { "name": "1 star", "count": 300000 },
+      { "name": "2 star", "count": 200000 },
+      { "name": "3 star", "count": 500000 },
+      { "name": "4 star", "count": 2000000 },
+      { "name": "5 star", "count": 29800000 }
+    ]
+  },
+  {
+    "image": "/app-logos/telegram.png",
+    "title": "Telegram",
+    "companyName": "Telegram FZ-LLC",
+    "id": 13,
+    "description": "Cloud-based messaging app, focused on speed and security.",
+    "size": 58.2,
+    "reviews": 29000000,
+    "ratingAvg": 4.28,
+    "downloads": 1000000000,
+    "ratings": [
+      { "name": "1 star", "count": 250000 },
+      { "name": "2 star", "count": 150000 },
+      { "name": "3 star", "count": 400000 },
+      { "name": "4 star", "count": 1800000 },
+      { "name": "5 star", "count": 27050000 }
+    ]
+  },
+  {
+    "image": "/app-logos/netflix.png",
+    "title": "Netflix",
+    "companyName": "Netflix, Inc.",
+    "id": 14,
+    "description": "Video streaming service offering movies, series and original content globally.",
+    "size": 52.9,
+    "reviews": 25000000,
+    "ratingAvg": 4.1,
+    "downloads": 800000000,
+    "ratings": [
+      { "name": "1 star", "count": 200000 },
+      { "name": "2 star", "count": 150000 },
+      { "name": "3 star", "count": 300000 },
+      { "name": "4 star", "count": 1200000 },
+      { "name": "5 star", "count": 23350000 }
+    ]
+  },
+  {
+    "image": "/app-logos/zoom.png",
+    "title": "Zoom Cloud Meetings",
+    "companyName": "Zoom Video Communications, Inc.",
+    "id": 15,
+    "description": "Video conferencing and meeting app — widely used for remote work and calls.",
+    "size": 44.7,
+    "reviews": 22000000,
+    "ratingAvg": 4.05,
+    "downloads": 700000000,
+    "ratings": [
+      { "name": "1 star", "count": 180000 },
+      { "name": "2 star", "count": 120000 },
+      { "name": "3 star", "count": 200000 },
+      { "name": "4 star", "count": 900000 },
+      { "name": "5 star", "count": 20850000 }
+    ]
+  }
+]
